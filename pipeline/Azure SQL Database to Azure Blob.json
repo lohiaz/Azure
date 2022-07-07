@@ -81,7 +81,10 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select * from data_source_table where LastModifytime > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and LastModifytime <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'",
+						"sqlReaderQuery": {
+							"value": "select * from data_source_table where LastModifytime > '@{activity('last watermark value').output.firstRow.WatermarkValue}' and LastModifytime <= '@{activity('new watermark value').output.firstRow.NewWatermarkvalue}'",
+							"type": "Expression"
+						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -120,7 +123,7 @@
 				]
 			},
 			{
-				"name": "Stored procedure1",
+				"name": "StoredProceduretoWriteWatermarkActivity",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
