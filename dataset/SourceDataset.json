@@ -5,6 +5,9 @@
 			"referenceName": "AzureSqlDatabase",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "Incrementally load"
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
