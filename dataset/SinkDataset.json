@@ -1,0 +1,30 @@
+{
+	"name": "SinkDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureStorageLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Incrementally load"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@CONCAT('Incremental-', pipeline().RunId, '.csv')",
+					"type": "Expression"
+				},
+				"folderPath": "adf-output",
+				"container": "lz-adf-container"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
