@@ -123,7 +123,7 @@
 				]
 			},
 			{
-				"name": "StoredProceduretoWriteWatermarkActivity",
+				"name": "SP - WriteWatermarkActivity",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
@@ -140,7 +140,24 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[usp_write_watermark]",
+					"storedProcedureParameters": {
+						"LastModifiedtime": {
+							"value": "@{activity('new watermark value').output.firstRow.NewWatermarkvalue}",
+							"type": "DateTime"
+						},
+						"TableName": {
+							"value": "@{activity('last watermark value').output.firstRow.TableName}",
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"folder": {
