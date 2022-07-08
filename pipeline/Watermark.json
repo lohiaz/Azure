@@ -161,7 +161,7 @@
 			}
 		],
 		"folder": {
-			"name": "Incremental load"
+			"name": "Watermark Incremental load"
 		},
 		"annotations": []
 	}
