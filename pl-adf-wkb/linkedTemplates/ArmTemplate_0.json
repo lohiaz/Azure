@@ -129,7 +129,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "Incrementally load"
+					"name": "Watermark Incrementally load"
 				},
 				"annotations": [],
 				"type": "AzureSqlTable",
@@ -164,7 +164,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "Incrementally load"
+					"name": "Watermark Incrementally load"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -199,7 +199,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "Incrementally load"
+					"name": "Watermark Incrementally load"
 				},
 				"annotations": [],
 				"type": "AzureSqlTable",
@@ -230,7 +230,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Azure SQL Database to Azure Blob')]",
+			"name": "[concat(parameters('factoryName'), '/Watermark')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -402,7 +402,7 @@
 					"cancelAfter": {}
 				},
 				"folder": {
-					"name": "Incremental load"
+					"name": "Watermark Incremental load"
 				},
 				"annotations": []
 			},
