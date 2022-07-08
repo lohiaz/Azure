@@ -1,5 +1,5 @@
 {
-	"name": "Azure SQL Database to Azure Blob",
+	"name": "Watermark",
 	"properties": {
 		"description": "Incrementally load data from Azure SQL Database to Azure Blob storage using the Azure portal",
 		"activities": [
