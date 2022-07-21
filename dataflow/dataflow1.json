@@ -1,0 +1,60 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"folder": {
+			"name": "Adhoc"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "input_fruit_store",
+						"type": "DatasetReference"
+					},
+					"name": "RawInput"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "LetsUnpivot"
+				},
+				{
+					"name": "ColumnSelection"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          POID as string,",
+				"          Store as string,",
+				"          Mango as string,",
+				"          Apple as string,",
+				"          Bananas as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> RawInput",
+				"RawInput unpivot(output(",
+				"          Fruits as string,",
+				"          Mango as string,",
+				"          Apple as string,",
+				"          Bananas as string",
+				"     ),",
+				"     ungroupBy(POID,",
+				"          Store),",
+				"     lateral: false,",
+				"     ignoreNullPivots: true) ~> LetsUnpivot",
+				"LetsUnpivot select(mapColumn(",
+				"          POID,",
+				"          Store,",
+				"          Mango,",
+				"          Apple,",
+				"          Bananas",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> ColumnSelection"
+			]
+		}
+	}
+}
