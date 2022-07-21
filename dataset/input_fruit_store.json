@@ -1,0 +1,48 @@
+{
+	"name": "input_fruit_store",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureStorageLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Adhoc"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "fruits_store.csv",
+				"folderPath": "adf-input",
+				"container": "lz-adf-container"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "POID",
+				"type": "String"
+			},
+			{
+				"name": "Store",
+				"type": "String"
+			},
+			{
+				"name": "Mango",
+				"type": "String"
+			},
+			{
+				"name": "Apple",
+				"type": "String"
+			},
+			{
+				"name": "Bananas",
+				"type": "String"
+			}
+		]
+	}
+}
