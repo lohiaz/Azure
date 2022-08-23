@@ -3,7 +3,18 @@
 	"properties": {
 		"type": "WranglingDataFlow",
 		"typeProperties": {
-			"sources": []
+			"sources": [
+				{
+					"name": "IPL",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~>  IPL",
+					"dataset": {
+						"referenceName": "IPL",
+						"type": "DatasetReference"
+					}
+				}
+			],
+			"script": "section Section1;\r\nshared IPL = let AdfDoc = AzureStorage.DataLakeContents(\"https://princemydocuments.dfs.core.windows.net/lz-adf-container/adf-input/IplOverview.xlsx\"), Excel = Excel.Workbook(AdfDoc),ExcelSheet = Excel{[Item=\"Sheet1\",Kind=\"Sheet\"]}[Data], PromotedHeaders = Table.PromoteHeaders(ExcelSheet, [PromoteAllScalars = true]) in PromotedHeaders;\r\nshared UserQuery = let Source = #\"IPL\",\r\n  #\"Sorted rows\" = Table.Sort(Source, {{\"city\", Order.Ascending}}) in #\"Sorted rows\";\r\n",
+			"documentLocale": "en-us"
 		}
 	}
 }

@@ -1,0 +1,94 @@
+{
+	"name": "IPL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ADLS",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Generic"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sheet1",
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "IplOverview.xlsx",
+				"folderPath": "adf-input",
+				"fileSystem": "lz-adf-container"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "city",
+				"type": "String"
+			},
+			{
+				"name": "date",
+				"type": "String"
+			},
+			{
+				"name": "player_of_match",
+				"type": "String"
+			},
+			{
+				"name": "venue",
+				"type": "String"
+			},
+			{
+				"name": "neutral_venue",
+				"type": "String"
+			},
+			{
+				"name": "team1",
+				"type": "String"
+			},
+			{
+				"name": "team2",
+				"type": "String"
+			},
+			{
+				"name": "toss_winner",
+				"type": "String"
+			},
+			{
+				"name": "toss_decision",
+				"type": "String"
+			},
+			{
+				"name": "winner",
+				"type": "String"
+			},
+			{
+				"name": "result",
+				"type": "String"
+			},
+			{
+				"name": "result_margin",
+				"type": "String"
+			},
+			{
+				"name": "eliminator",
+				"type": "String"
+			},
+			{
+				"name": "method",
+				"type": "String"
+			},
+			{
+				"name": "umpire1",
+				"type": "String"
+			},
+			{
+				"name": "umpire2",
+				"type": "String"
+			}
+		]
+	}
+}
