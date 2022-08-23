@@ -1,0 +1,89 @@
+{
+	"name": "myOnPremDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "myOnPremSQLDB",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "OnPremDS"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "city",
+				"type": "nvarchar"
+			},
+			{
+				"name": "date",
+				"type": "date"
+			},
+			{
+				"name": "player_of_match",
+				"type": "nvarchar"
+			},
+			{
+				"name": "venue",
+				"type": "nvarchar"
+			},
+			{
+				"name": "neutral_venue",
+				"type": "nvarchar"
+			},
+			{
+				"name": "team1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "team2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "toss_winner",
+				"type": "nvarchar"
+			},
+			{
+				"name": "toss_decision",
+				"type": "nvarchar"
+			},
+			{
+				"name": "winner",
+				"type": "nvarchar"
+			},
+			{
+				"name": "result",
+				"type": "nvarchar"
+			},
+			{
+				"name": "result_margin",
+				"type": "nvarchar"
+			},
+			{
+				"name": "eliminator",
+				"type": "nvarchar"
+			},
+			{
+				"name": "method",
+				"type": "nvarchar"
+			},
+			{
+				"name": "umpire1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "umpire2",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "IPLMatchesOverall"
+		}
+	}
+}
