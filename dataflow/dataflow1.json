@@ -1,0 +1,44 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "myOnPremDS",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          id as integer,",
+				"          city as string,",
+				"          date as date,",
+				"          player_of_match as string,",
+				"          venue as string,",
+				"          neutral_venue as string,",
+				"          team1 as string,",
+				"          team2 as string,",
+				"          toss_winner as string,",
+				"          toss_decision as string,",
+				"          winner as string,",
+				"          result as string,",
+				"          result_margin as string,",
+				"          eliminator as string,",
+				"          method as string,",
+				"          umpire1 as string,",
+				"          umpire2 as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source1"
+			]
+		}
+	}
+}
